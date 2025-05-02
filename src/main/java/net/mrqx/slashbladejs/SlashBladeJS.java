@@ -5,6 +5,8 @@ import dev.latvian.mods.kubejs.script.ScriptType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.mrqx.sbr_core.events.MrqxSlashBladeEvents;
+import net.mrqx.slashbladejs.event.SlashBladeEventGroup;
+import net.mrqx.slashbladejs.event.SlashBladeEventJS;
 import org.slf4j.Logger;
 
 @Mod(SlashBladeJS.MODID)
@@ -31,77 +33,77 @@ public class SlashBladeJS {
     }
 
     public void bladeChangeSpecialAttack(MrqxSlashBladeEvents.BladeChangeSpecialAttackEvent event) {
-        SlashBladeJSPlugin.BLADE_CHANGE_SA.post(ScriptType.SERVER,
-                new SlashBladeJSPlugin.BladeChangeSpecialAttackEvent(event));
+        SlashBladeEventGroup.BLADE_CHANGE_SA.post(ScriptType.SERVER,
+                new SlashBladeEventJS.BladeChangeSpecialAttackEvent(event));
     }
 
     public void bladeChangeSpecialEffect(MrqxSlashBladeEvents.BladeChangeSpecialEffectEvent event) {
-        SlashBladeJSPlugin.BLADE_CHANGE_SE.post(ScriptType.SERVER,
-                new SlashBladeJSPlugin.BladeChangeSpecialEffectEvent(event));
+        SlashBladeEventGroup.BLADE_CHANGE_SE.post(ScriptType.SERVER,
+                new SlashBladeEventJS.BladeChangeSpecialEffectEvent(event));
     }
 
     public void copySpecialAttackFromBlade(MrqxSlashBladeEvents.CopySpecialAttackFromBladeEvent event) {
-        SlashBladeJSPlugin.BLADE_COPY_SA.post(ScriptType.SERVER,
-                new SlashBladeJSPlugin.CopySpecialAttackFromBladeEvent(event));
+        SlashBladeEventGroup.BLADE_COPY_SA.post(ScriptType.SERVER,
+                new SlashBladeEventJS.CopySpecialAttackFromBladeEvent(event));
     }
 
     public void copySpecialEffectFromBlade(MrqxSlashBladeEvents.CopySpecialEffectFromBladeEvent event) {
-        SlashBladeJSPlugin.BLADE_COPY_SE.post(ScriptType.SERVER,
-                new SlashBladeJSPlugin.CopySpecialEffectFromBladeEvent(event));
+        SlashBladeEventGroup.BLADE_COPY_SE.post(ScriptType.SERVER,
+                new SlashBladeEventJS.CopySpecialEffectFromBladeEvent(event));
     }
 
     public void preCopySpecialAttackFromBlade(MrqxSlashBladeEvents.PreCopySpecialAttackFromBladeEvent event) {
-        SlashBladeJSPlugin.PRE_COPY_SA.post(ScriptType.SERVER,
-                new SlashBladeJSPlugin.PreCopySpecialAttackFromBladeEvent(event));
+        SlashBladeEventGroup.PRE_COPY_SA.post(ScriptType.SERVER,
+                new SlashBladeEventJS.PreCopySpecialAttackFromBladeEvent(event));
     }
 
     public void preCopySpecialEffectFromBlade(MrqxSlashBladeEvents.PreCopySpecialEffectFromBladeEvent event) {
-        SlashBladeJSPlugin.PRE_COPY_SE.post(ScriptType.SERVER,
-                new SlashBladeJSPlugin.PreCopySpecialEffectFromBladeEvent(event));
+        SlashBladeEventGroup.PRE_COPY_SE.post(ScriptType.SERVER,
+                new SlashBladeEventJS.PreCopySpecialEffectFromBladeEvent(event));
     }
 
     public void proudSoulEnchantment(MrqxSlashBladeEvents.ProudSoulEnchantmentEvent event) {
-        SlashBladeJSPlugin.PROUD_SOUL_ENCHANT.post(ScriptType.SERVER,
-                new SlashBladeJSPlugin.ProudSoulEnchantmentEvent(event));
+        SlashBladeEventGroup.PROUD_SOUL_ENCHANT.post(ScriptType.SERVER,
+                new SlashBladeEventJS.ProudSoulEnchantmentEvent(event));
     }
 
     public void refineProgress(MrqxSlashBladeEvents.RefineProgressEvent event) {
-        SlashBladeJSPlugin.REFINE_PROGRESS.post(ScriptType.SERVER,
-                new SlashBladeJSPlugin.RefineProgressEvent(event));
+        SlashBladeEventGroup.REFINE_PROGRESS.post(ScriptType.SERVER,
+                new SlashBladeEventJS.RefineProgressEvent(event));
     }
 
     public void refineSettlement(MrqxSlashBladeEvents.RefineSettlementEvent event) {
-        SlashBladeJSPlugin.REFINE_SETTLEMENT.post(ScriptType.SERVER,
-                new SlashBladeJSPlugin.RefineSettlementEvent(event));
+        SlashBladeEventGroup.REFINE_SETTLEMENT.post(ScriptType.SERVER,
+                new SlashBladeEventJS.RefineSettlementEvent(event));
     }
 
     public void powerBlade(MrqxSlashBladeEvents.PowerBladeEvent event) {
-        SlashBladeJSPlugin.POWER_BLADE.post(ScriptType.SERVER,
-                new SlashBladeJSPlugin.PowerBladeEvent(event));
+        SlashBladeEventGroup.POWER_BLADE.post(ScriptType.SERVER,
+                new SlashBladeEventJS.PowerBladeEvent(event));
     }
 
     public void updateAttack(MrqxSlashBladeEvents.UpdateAttackEvent event) {
-        SlashBladeJSPlugin.UPDATE_ATTACK.post(ScriptType.SERVER,
-                new SlashBladeJSPlugin.UpdateAttackEvent(event));
+        SlashBladeEventGroup.UPDATE_ATTACK.post(ScriptType.SERVER,
+                new SlashBladeEventJS.UpdateAttackEvent(event));
     }
 
     public void bladeStandAttack(MrqxSlashBladeEvents.BladeStandAttackEvent event) {
-        SlashBladeJSPlugin.BLADE_STAND_ATTACK.post(ScriptType.SERVER,
-                new SlashBladeJSPlugin.BladeStandAttackEvent(event));
+        SlashBladeEventGroup.BLADE_STAND_ATTACK.post(ScriptType.SERVER,
+                new SlashBladeEventJS.BladeStandAttackEvent(event));
     }
 
     public void hit(MrqxSlashBladeEvents.HitEvent event) {
-        SlashBladeJSPlugin.HIT.post(ScriptType.SERVER,
-                new SlashBladeJSPlugin.HitEvent(event));
+        SlashBladeEventGroup.HIT.post(ScriptType.SERVER,
+                new SlashBladeEventJS.HitEvent(event));
     }
 
     public void update(MrqxSlashBladeEvents.UpdateEvent event) {
-        SlashBladeJSPlugin.UPDATE.post(ScriptType.SERVER,
-                new SlashBladeJSPlugin.UpdateEvent(event));
+        SlashBladeEventGroup.UPDATE.post(ScriptType.SERVER,
+                new SlashBladeEventJS.UpdateEvent(event));
     }
 
     public void doSlash(MrqxSlashBladeEvents.DoSlashEvent event) {
-        SlashBladeJSPlugin.DO_SLASH.post(ScriptType.SERVER,
-                new SlashBladeJSPlugin.DoSlashEvent(event));
+        SlashBladeEventGroup.DO_SLASH.post(ScriptType.SERVER,
+                new SlashBladeEventJS.DoSlashEvent(event));
     }
 }
