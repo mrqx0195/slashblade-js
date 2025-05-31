@@ -1,12 +1,12 @@
 package net.mrqx.slashbladejs.recipe;
 
 import dev.latvian.mods.kubejs.item.OutputItem;
-import dev.latvian.mods.kubejs.recipe.component.ItemComponents;
-import dev.latvian.mods.kubejs.recipe.component.StringComponent;
 import dev.latvian.mods.kubejs.recipe.RecipeKey;
 import dev.latvian.mods.kubejs.recipe.RecipeTypeFunction;
-import dev.latvian.mods.kubejs.recipe.schema.minecraft.ShapedRecipeSchema;
+import dev.latvian.mods.kubejs.recipe.component.ItemComponents;
+import dev.latvian.mods.kubejs.recipe.component.StringComponent;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchema;
+import dev.latvian.mods.kubejs.recipe.schema.minecraft.ShapedRecipeSchema;
 
 public interface SlashBladeShapedRecipeSchema extends ShapedRecipeSchema {
     class SlashBladeShapedRecipeJS extends ShapedRecipeSchema.ShapedRecipeJS {

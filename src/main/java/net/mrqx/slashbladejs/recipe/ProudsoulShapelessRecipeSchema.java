@@ -1,8 +1,8 @@
 package net.mrqx.slashbladejs.recipe;
 
 import dev.latvian.mods.kubejs.recipe.RecipeTypeFunction;
-import dev.latvian.mods.kubejs.recipe.schema.minecraft.ShapelessRecipeSchema;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchema;
+import dev.latvian.mods.kubejs.recipe.schema.minecraft.ShapelessRecipeSchema;
 
 public interface ProudsoulShapelessRecipeSchema extends ShapelessRecipeSchema {
     class SlashBladeShapedRecipeJS extends ShapelessRecipeSchema.ShapelessRecipeJS {

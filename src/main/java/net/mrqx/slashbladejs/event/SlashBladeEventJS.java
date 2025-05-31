@@ -2,22 +2,27 @@ package net.mrqx.slashbladejs.event;
 
 import dev.latvian.mods.kubejs.event.EventJS;
 import mods.flammpfeil.slashblade.capability.slashblade.ISlashBladeState;
+import mods.flammpfeil.slashblade.compat.playerAnim.VmdAnimation;
 import mods.flammpfeil.slashblade.entity.BladeStandEntity;
 import mods.flammpfeil.slashblade.event.SlashBladeEvent;
+import mods.flammpfeil.slashblade.registry.combo.ComboState;
 import mods.flammpfeil.slashblade.util.KnockBacks;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.mrqx.sbr_core.events.MrqxSlashBladeEvents;
+import net.mrqx.sbr_core.events.SlashBladePlayerAnimationRegistryEvent;
+
+import java.util.Map;
 
 public class SlashBladeEventJS extends EventJS {
-    private SlashBladeEvent event;
+    private final SlashBladeEvent event;
 
     public SlashBladeEventJS(SlashBladeEvent event) {
         this.event = event;
@@ -32,7 +37,7 @@ public class SlashBladeEventJS extends EventJS {
     }
 
     public static class BladeChangeSpecialAttackEvent extends SlashBladeEventJS {
-        private MrqxSlashBladeEvents.BladeChangeSpecialAttackEvent event;
+        private final MrqxSlashBladeEvents.BladeChangeSpecialAttackEvent event;
 
         public BladeChangeSpecialAttackEvent(MrqxSlashBladeEvents.BladeChangeSpecialAttackEvent event) {
             super(event);
@@ -61,7 +66,7 @@ public class SlashBladeEventJS extends EventJS {
     }
 
     public static class BladeChangeSpecialEffectEvent extends SlashBladeEventJS {
-        private MrqxSlashBladeEvents.BladeChangeSpecialEffectEvent event;
+        private final MrqxSlashBladeEvents.BladeChangeSpecialEffectEvent event;
 
         public BladeChangeSpecialEffectEvent(MrqxSlashBladeEvents.BladeChangeSpecialEffectEvent event) {
             super(event);
@@ -90,7 +95,7 @@ public class SlashBladeEventJS extends EventJS {
     }
 
     public static class CopySpecialAttackFromBladeEvent extends SlashBladeEventJS {
-        private MrqxSlashBladeEvents.CopySpecialAttackFromBladeEvent event;
+        private final MrqxSlashBladeEvents.CopySpecialAttackFromBladeEvent event;
 
         public CopySpecialAttackFromBladeEvent(MrqxSlashBladeEvents.CopySpecialAttackFromBladeEvent event) {
             super(event);
@@ -115,7 +120,7 @@ public class SlashBladeEventJS extends EventJS {
     }
 
     public static class CopySpecialEffectFromBladeEvent extends SlashBladeEventJS {
-        private MrqxSlashBladeEvents.CopySpecialEffectFromBladeEvent event;
+        private final MrqxSlashBladeEvents.CopySpecialEffectFromBladeEvent event;
 
         public CopySpecialEffectFromBladeEvent(MrqxSlashBladeEvents.CopySpecialEffectFromBladeEvent event) {
             super(event);
@@ -148,7 +153,7 @@ public class SlashBladeEventJS extends EventJS {
     }
 
     public static class PreCopySpecialAttackFromBladeEvent extends SlashBladeEventJS {
-        private MrqxSlashBladeEvents.PreCopySpecialAttackFromBladeEvent event;
+        private final MrqxSlashBladeEvents.PreCopySpecialAttackFromBladeEvent event;
 
         public PreCopySpecialAttackFromBladeEvent(MrqxSlashBladeEvents.PreCopySpecialAttackFromBladeEvent event) {
             super(event);
@@ -177,7 +182,7 @@ public class SlashBladeEventJS extends EventJS {
     }
 
     public static class PreCopySpecialEffectFromBladeEvent extends SlashBladeEventJS {
-        private MrqxSlashBladeEvents.PreCopySpecialEffectFromBladeEvent event;
+        private final MrqxSlashBladeEvents.PreCopySpecialEffectFromBladeEvent event;
 
         public PreCopySpecialEffectFromBladeEvent(MrqxSlashBladeEvents.PreCopySpecialEffectFromBladeEvent event) {
             super(event);
@@ -222,7 +227,7 @@ public class SlashBladeEventJS extends EventJS {
     }
 
     public static class ProudSoulEnchantmentEvent extends SlashBladeEventJS {
-        private MrqxSlashBladeEvents.ProudSoulEnchantmentEvent event;
+        private final MrqxSlashBladeEvents.ProudSoulEnchantmentEvent event;
 
         public ProudSoulEnchantmentEvent(MrqxSlashBladeEvents.ProudSoulEnchantmentEvent event) {
             super(event);
@@ -275,7 +280,7 @@ public class SlashBladeEventJS extends EventJS {
     }
 
     public static class RefineProgressEvent extends SlashBladeEventJS {
-        private MrqxSlashBladeEvents.RefineProgressEvent event;
+        private final MrqxSlashBladeEvents.RefineProgressEvent event;
 
         public RefineProgressEvent(MrqxSlashBladeEvents.RefineProgressEvent event) {
             super(event);
@@ -316,7 +321,7 @@ public class SlashBladeEventJS extends EventJS {
     }
 
     public static class RefineSettlementEvent extends SlashBladeEventJS {
-        private MrqxSlashBladeEvents.RefineSettlementEvent event;
+        private final MrqxSlashBladeEvents.RefineSettlementEvent event;
 
         public RefineSettlementEvent(MrqxSlashBladeEvents.RefineSettlementEvent event) {
             super(event);
@@ -352,8 +357,36 @@ public class SlashBladeEventJS extends EventJS {
         }
     }
 
+    public static class ComboStateRegistryEvent extends EventJS {
+        private final net.mrqx.sbr_core.events.ComboStateRegistryEvent event;
+
+        public ComboStateRegistryEvent(net.mrqx.sbr_core.events.ComboStateRegistryEvent event) {
+            this.event = event;
+        }
+
+        public ComboState.Builder getBuilder() {
+            return event.getBuilder();
+        }
+
+        public ComboState getCombo() {
+            return event.getCombo();
+        }
+    }
+
+    public static class PlayerAnimationRegistryEvent extends EventJS {
+        private final SlashBladePlayerAnimationRegistryEvent event;
+
+        public PlayerAnimationRegistryEvent(SlashBladePlayerAnimationRegistryEvent event) {
+            this.event = event;
+        }
+
+        public Map<ResourceLocation, VmdAnimation> getAnimation() {
+            return event.getAnimation();
+        }
+    }
+
     public static class PowerBladeEvent extends SlashBladeEventJS {
-        private SlashBladeEvent.PowerBladeEvent event;
+        private final SlashBladeEvent.PowerBladeEvent event;
 
         public PowerBladeEvent(SlashBladeEvent.PowerBladeEvent event) {
             super(event);
@@ -375,7 +408,7 @@ public class SlashBladeEventJS extends EventJS {
     }
 
     public static class UpdateAttackEvent extends SlashBladeEventJS {
-        private SlashBladeEvent.UpdateAttackEvent event;
+        private final SlashBladeEvent.UpdateAttackEvent event;
 
         public UpdateAttackEvent(SlashBladeEvent.UpdateAttackEvent event) {
             super(event);
@@ -396,7 +429,7 @@ public class SlashBladeEventJS extends EventJS {
     }
 
     public static class BladeStandAttackEvent extends SlashBladeEventJS {
-        private SlashBladeEvent.BladeStandAttackEvent event;
+        private final SlashBladeEvent.BladeStandAttackEvent event;
 
         public BladeStandAttackEvent(SlashBladeEvent.BladeStandAttackEvent event) {
             super(event);
@@ -414,7 +447,7 @@ public class SlashBladeEventJS extends EventJS {
     }
 
     public static class HitEvent extends SlashBladeEventJS {
-        private SlashBladeEvent.HitEvent event;
+        private final SlashBladeEvent.HitEvent event;
 
         public HitEvent(SlashBladeEvent.HitEvent event) {
             super(event);
@@ -432,7 +465,7 @@ public class SlashBladeEventJS extends EventJS {
     }
 
     public static class UpdateEvent extends SlashBladeEventJS {
-        private SlashBladeEvent.UpdateEvent event;
+        private final SlashBladeEvent.UpdateEvent event;
 
         public UpdateEvent(SlashBladeEvent.UpdateEvent event) {
             super(event);
@@ -458,7 +491,7 @@ public class SlashBladeEventJS extends EventJS {
     }
 
     public static class DoSlashEvent extends SlashBladeEventJS {
-        private SlashBladeEvent.DoSlashEvent event;
+        private final SlashBladeEvent.DoSlashEvent event;
 
         public DoSlashEvent(SlashBladeEvent.DoSlashEvent event) {
             super(event);
