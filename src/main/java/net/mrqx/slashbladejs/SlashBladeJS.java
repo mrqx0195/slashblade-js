@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import dev.latvian.mods.kubejs.script.ScriptType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.mrqx.sbr_core.events.ComboStateRegistryEvent;
 import net.mrqx.sbr_core.events.MrqxSlashBladeEvents;
 import net.mrqx.sbr_core.events.SlashBladePlayerAnimationRegistryEvent;
@@ -26,7 +27,7 @@ public class SlashBladeJS {
         MinecraftForge.EVENT_BUS.addListener(this::proudSoulEnchantment);
         MinecraftForge.EVENT_BUS.addListener(this::refineProgress);
         MinecraftForge.EVENT_BUS.addListener(this::refineSettlement);
-        MinecraftForge.EVENT_BUS.addListener(this::comboStateRegistry);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::comboStateRegistry);
         MinecraftForge.EVENT_BUS.addListener(this::playerAnimationRegistry);
         MinecraftForge.EVENT_BUS.addListener(this::powerBlade);
         MinecraftForge.EVENT_BUS.addListener(this::updateAttack);
