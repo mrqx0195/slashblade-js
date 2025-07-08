@@ -7,27 +7,27 @@ public class SlashBladeEventGroup {
     public static final EventGroup GROUP = EventGroup.of("SlashBladeJSEvents");
 
     public static final EventHandler BLADE_CHANGE_SA = GROUP.server("bladeChangeSpecialAttack",
-            () -> SlashBladeEventJS.BladeChangeSpecialAttackEvent.class);
+            () -> SlashBladeEventJS.BladeChangeSpecialAttackJSEvent.class);
     public static final EventHandler BLADE_CHANGE_SE = GROUP.server("bladeChangeSpecialEffect",
-            () -> SlashBladeEventJS.BladeChangeSpecialEffectEvent.class);
+            () -> SlashBladeEventJS.BladeChangeSpecialEffectJSEvent.class);
 
     public static final EventHandler BLADE_COPY_SA = GROUP.server("copySpecialAttackFromBlade",
-            () -> SlashBladeEventJS.CopySpecialAttackFromBladeEvent.class);
+            () -> SlashBladeEventJS.CopySpecialAttackFromBladeJSEvent.class);
     public static final EventHandler BLADE_COPY_SE = GROUP.server("copySpecialEffectFromBlade",
-            () -> SlashBladeEventJS.CopySpecialEffectFromBladeEvent.class);
+            () -> SlashBladeEventJS.CopySpecialEffectFromBladeJSEvent.class);
 
     public static final EventHandler PRE_COPY_SA = GROUP.server("preCopySpecialAttackFromBlade",
-            () -> SlashBladeEventJS.PreCopySpecialAttackFromBladeEvent.class);
+            () -> SlashBladeEventJS.PreCopySpecialAttackFromBladeJSEvent.class);
     public static final EventHandler PRE_COPY_SE = GROUP.server("preCopySpecialEffectFromBlade",
-            () -> SlashBladeEventJS.PreCopySpecialEffectFromBladeEvent.class);
+            () -> SlashBladeEventJS.PreCopySpecialEffectFromBladeJSEvent.class);
 
     public static final EventHandler PROUD_SOUL_ENCHANT = GROUP.server("proudSoulEnchantment",
-            () -> SlashBladeEventJS.ProudSoulEnchantmentEvent.class);
+            () -> SlashBladeEventJS.ProudSoulEnchantmentJSEvent.class);
 
     public static final EventHandler REFINE_PROGRESS = GROUP.server("refineProgress",
-            () -> SlashBladeEventJS.RefineProgressEvent.class);
+            () -> SlashBladeEventJS.RefineProgressJSEvent.class);
     public static final EventHandler REFINE_SETTLEMENT = GROUP.server("refineSettlement",
-            () -> SlashBladeEventJS.RefineSettlementEvent.class);
+            () -> SlashBladeEventJS.RefineSettlementJSEvent.class);
 
     public static final EventHandler COMBO_STATE_REGISTRY = GROUP.startup("comboStateRegistry",
             () -> SlashBladeEventJS.ComboStateRegistryEvent.class);

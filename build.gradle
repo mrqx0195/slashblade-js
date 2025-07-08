@@ -138,6 +138,12 @@ repositories {
 			includeGroup "dev.latvian.mods"
 		}
 	}
+    maven {
+        url = "https://api.modrinth.com/maven"
+        content {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 dependencies {
@@ -158,7 +164,8 @@ dependencies {
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
     // The group id is ignored when searching -- in this case, it is "blank"
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
-    implementation fg.deobf("blank:SlashBladeResharped-${minecraft_version}:${slash_blade_version}")
+
+    implementation fg.deobf("maven.modrinth:slashblade-resharped:${slash_blade_version}")
     implementation fg.deobf("blank:mrqxs_Slashblade_Core-${minecraft_version}:${mrqx_slash_blade_core_version}")
 
 	// ForgeGradle

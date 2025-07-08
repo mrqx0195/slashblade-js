@@ -11,7 +11,7 @@ import java.util.Optional;
 public class SBJSRecipeSchemaType extends RecipeSchemaType {
 
     public SBJSRecipeSchemaType(RecipeNamespace namespace, ResourceLocation id, RecipeSchema schema,
-            RecipeSerializer<?> serializer) {
+                                RecipeSerializer<?> serializer) {
         super(namespace, id, schema);
         this.serializer = Optional.of(serializer);
     }

@@ -86,8 +86,8 @@ public class SBJSDefinitions {
     }
 
     public static class SBEnums {
-        private HashMap<String, CarryType> SBCarryType = new HashMap<String, CarryType>();
-        private HashMap<String, SwordType> SBSwordType = new HashMap<String, SwordType>();
+        private final HashMap<String, CarryType> SBCarryType = new HashMap<>();
+        private final HashMap<String, SwordType> SBSwordType = new HashMap<>();
 
         public HashMap<String, CarryType> SBCarryType() {
             if (SBCarryType.isEmpty()) {

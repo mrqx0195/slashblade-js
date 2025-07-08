@@ -2,11 +2,14 @@ package net.mrqx.slashbladejs;
 
 import com.mojang.logging.LogUtils;
 import dev.latvian.mods.kubejs.script.ScriptType;
+import mods.flammpfeil.slashblade.event.RefineProgressEvent;
+import mods.flammpfeil.slashblade.event.RefineSettlementEvent;
+import mods.flammpfeil.slashblade.event.SlashBladeEvent;
+import mods.flammpfeil.slashblade.event.bladestand.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.mrqx.sbr_core.events.ComboStateRegistryEvent;
-import net.mrqx.sbr_core.events.MrqxSlashBladeEvents;
 import net.mrqx.sbr_core.events.SlashBladePlayerAnimationRegistryEvent;
 import net.mrqx.slashbladejs.event.SlashBladeEventGroup;
 import net.mrqx.slashbladejs.event.SlashBladeEventJS;
@@ -37,49 +40,49 @@ public class SlashBladeJS {
         MinecraftForge.EVENT_BUS.addListener(this::doSlash);
     }
 
-    public void bladeChangeSpecialAttack(MrqxSlashBladeEvents.BladeChangeSpecialAttackEvent event) {
+    public void bladeChangeSpecialAttack(BladeChangeSpecialAttackEvent event) {
         SlashBladeEventGroup.BLADE_CHANGE_SA.post(ScriptType.SERVER,
-                new SlashBladeEventJS.BladeChangeSpecialAttackEvent(event));
+                new SlashBladeEventJS.BladeChangeSpecialAttackJSEvent(event));
     }
 
-    public void bladeChangeSpecialEffect(MrqxSlashBladeEvents.BladeChangeSpecialEffectEvent event) {
+    public void bladeChangeSpecialEffect(BladeChangeSpecialEffectEvent event) {
         SlashBladeEventGroup.BLADE_CHANGE_SE.post(ScriptType.SERVER,
-                new SlashBladeEventJS.BladeChangeSpecialEffectEvent(event));
+                new SlashBladeEventJS.BladeChangeSpecialEffectJSEvent(event));
     }
 
-    public void copySpecialAttackFromBlade(MrqxSlashBladeEvents.CopySpecialAttackFromBladeEvent event) {
+    public void copySpecialAttackFromBlade(CopySpecialAttackFromBladeEvent event) {
         SlashBladeEventGroup.BLADE_COPY_SA.post(ScriptType.SERVER,
-                new SlashBladeEventJS.CopySpecialAttackFromBladeEvent(event));
+                new SlashBladeEventJS.CopySpecialAttackFromBladeJSEvent(event));
     }
 
-    public void copySpecialEffectFromBlade(MrqxSlashBladeEvents.CopySpecialEffectFromBladeEvent event) {
+    public void copySpecialEffectFromBlade(CopySpecialEffectFromBladeEvent event) {
         SlashBladeEventGroup.BLADE_COPY_SE.post(ScriptType.SERVER,
-                new SlashBladeEventJS.CopySpecialEffectFromBladeEvent(event));
+                new SlashBladeEventJS.CopySpecialEffectFromBladeJSEvent(event));
     }
 
-    public void preCopySpecialAttackFromBlade(MrqxSlashBladeEvents.PreCopySpecialAttackFromBladeEvent event) {
+    public void preCopySpecialAttackFromBlade(PreCopySpecialAttackFromBladeEvent event) {
         SlashBladeEventGroup.PRE_COPY_SA.post(ScriptType.SERVER,
-                new SlashBladeEventJS.PreCopySpecialAttackFromBladeEvent(event));
+                new SlashBladeEventJS.PreCopySpecialAttackFromBladeJSEvent(event));
     }
 
-    public void preCopySpecialEffectFromBlade(MrqxSlashBladeEvents.PreCopySpecialEffectFromBladeEvent event) {
+    public void preCopySpecialEffectFromBlade(PreCopySpecialEffectFromBladeEvent event) {
         SlashBladeEventGroup.PRE_COPY_SE.post(ScriptType.SERVER,
-                new SlashBladeEventJS.PreCopySpecialEffectFromBladeEvent(event));
+                new SlashBladeEventJS.PreCopySpecialEffectFromBladeJSEvent(event));
     }
 
-    public void proudSoulEnchantment(MrqxSlashBladeEvents.ProudSoulEnchantmentEvent event) {
+    public void proudSoulEnchantment(ProudSoulEnchantmentEvent event) {
         SlashBladeEventGroup.PROUD_SOUL_ENCHANT.post(ScriptType.SERVER,
-                new SlashBladeEventJS.ProudSoulEnchantmentEvent(event));
+                new SlashBladeEventJS.ProudSoulEnchantmentJSEvent(event));
     }
 
-    public void refineProgress(MrqxSlashBladeEvents.RefineProgressEvent event) {
+    public void refineProgress(RefineProgressEvent event) {
         SlashBladeEventGroup.REFINE_PROGRESS.post(ScriptType.SERVER,
-                new SlashBladeEventJS.RefineProgressEvent(event));
+                new SlashBladeEventJS.RefineProgressJSEvent(event));
     }
 
-    public void refineSettlement(MrqxSlashBladeEvents.RefineSettlementEvent event) {
+    public void refineSettlement(RefineSettlementEvent event) {
         SlashBladeEventGroup.REFINE_SETTLEMENT.post(ScriptType.SERVER,
-                new SlashBladeEventJS.RefineSettlementEvent(event));
+                new SlashBladeEventJS.RefineSettlementJSEvent(event));
     }
 
     public void comboStateRegistry(ComboStateRegistryEvent event) {
@@ -92,32 +95,32 @@ public class SlashBladeJS {
                 new SlashBladeEventJS.PlayerAnimationRegistryEvent(event));
     }
 
-    public void powerBlade(MrqxSlashBladeEvents.PowerBladeEvent event) {
+    public void powerBlade(SlashBladeEvent.PowerBladeEvent event) {
         SlashBladeEventGroup.POWER_BLADE.post(ScriptType.SERVER,
                 new SlashBladeEventJS.PowerBladeEvent(event));
     }
 
-    public void updateAttack(MrqxSlashBladeEvents.UpdateAttackEvent event) {
+    public void updateAttack(SlashBladeEvent.UpdateAttackEvent event) {
         SlashBladeEventGroup.UPDATE_ATTACK.post(ScriptType.SERVER,
                 new SlashBladeEventJS.UpdateAttackEvent(event));
     }
 
-    public void bladeStandAttack(MrqxSlashBladeEvents.BladeStandAttackEvent event) {
+    public void bladeStandAttack(SlashBladeEvent.BladeStandAttackEvent event) {
         SlashBladeEventGroup.BLADE_STAND_ATTACK.post(ScriptType.SERVER,
                 new SlashBladeEventJS.BladeStandAttackEvent(event));
     }
 
-    public void hit(MrqxSlashBladeEvents.HitEvent event) {
+    public void hit(SlashBladeEvent.HitEvent event) {
         SlashBladeEventGroup.HIT.post(ScriptType.SERVER,
                 new SlashBladeEventJS.HitEvent(event));
     }
 
-    public void update(MrqxSlashBladeEvents.UpdateEvent event) {
+    public void update(SlashBladeEvent.UpdateEvent event) {
         SlashBladeEventGroup.UPDATE.post(ScriptType.SERVER,
                 new SlashBladeEventJS.UpdateEvent(event));
     }
 
-    public void doSlash(MrqxSlashBladeEvents.DoSlashEvent event) {
+    public void doSlash(SlashBladeEvent.DoSlashEvent event) {
         SlashBladeEventGroup.DO_SLASH.post(ScriptType.SERVER,
                 new SlashBladeEventJS.DoSlashEvent(event));
     }
