@@ -4,14 +4,23 @@ import dev.latvian.mods.kubejs.KubeJSPlugin;
 import dev.latvian.mods.kubejs.recipe.schema.RegisterRecipeSchemasEvent;
 import dev.latvian.mods.kubejs.registry.RegistryInfo;
 import dev.latvian.mods.kubejs.script.BindingsEvent;
+import mods.flammpfeil.slashblade.ability.StunManager;
+import mods.flammpfeil.slashblade.ability.Untouchable;
 import mods.flammpfeil.slashblade.compat.playerAnim.VmdAnimation;
+import mods.flammpfeil.slashblade.event.client.UserPoseOverrider;
 import mods.flammpfeil.slashblade.recipe.ProudsoulShapelessRecipe;
 import mods.flammpfeil.slashblade.recipe.RequestDefinition;
 import mods.flammpfeil.slashblade.recipe.SlashBladeShapedRecipe;
 import mods.flammpfeil.slashblade.registry.combo.ComboState;
 import mods.flammpfeil.slashblade.registry.specialeffects.SpecialEffect;
 import mods.flammpfeil.slashblade.slasharts.SlashArts;
+import mods.flammpfeil.slashblade.util.AdvancementHelper;
+import mods.flammpfeil.slashblade.util.AttackManager;
+import mods.flammpfeil.slashblade.util.TargetSelector;
 import net.minecraft.resources.ResourceLocation;
+import net.mrqx.sbr_core.utils.InputStream;
+import net.mrqx.sbr_core.utils.MrqxSlayerStyleArts;
+import net.mrqx.sbr_core.utils.MrqxSummonedSwordArts;
 import net.mrqx.slashbladejs.binding.BladeStateJS;
 import net.mrqx.slashbladejs.binding.SBJSDefinitions;
 import net.mrqx.slashbladejs.binding.SBJSDefinitions.SBEnums;
@@ -24,6 +33,7 @@ import net.mrqx.slashbladejs.recipe.SlashBladeShapedRecipeSchema;
 import net.mrqx.slashbladejs.registry.ComboStateBuilderJS;
 import net.mrqx.slashbladejs.registry.CustomSpecialEffect;
 import net.mrqx.slashbladejs.registry.SlashArtBuilder;
+import org.apache.logging.log4j.util.LoaderUtil;
 
 import java.util.Collections;
 
@@ -72,7 +82,20 @@ public class SlashBladeJSPlugin extends KubeJSPlugin {
 
         event.add("SlashBladeRequestDefinition", RequestDefinition.Builder.newInstance());
 
-        event.add("SBVmdAnimation", VmdAnimation.class);
+        if (LoaderUtil.isClassAvailable("dev.kosmx.playerAnim.api.layered.AnimationStack")) {
+            event.add("SBVmdAnimation", VmdAnimation.class);
+        }
+        event.add("SBUserPoseOverrider", UserPoseOverrider.class);
+
+        event.add("SBAdvancementHelper", AdvancementHelper.class);
+        event.add("SBAttackManager", AttackManager.class);
+        event.add("SBTargetSelector", TargetSelector.class);
+        event.add("SBStunManager", StunManager.class);
+        event.add("SBUntouchable", Untouchable.class);
+
+        event.add("SBInputStream", InputStream.class);
+        event.add("SBSlayerStyleArts", MrqxSlayerStyleArts.class);
+        event.add("SBSummonedSwordArts", MrqxSummonedSwordArts.class);
 
         event.add("SBSpecialEffect", SpecialEffectWrapper.class);
     }
