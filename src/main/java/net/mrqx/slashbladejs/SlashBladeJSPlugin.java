@@ -80,7 +80,7 @@ public class SlashBladeJSPlugin extends KubeJSPlugin {
         event.add("SBCarryType", Collections.unmodifiableMap(enums.SBCarryType()));
         event.add("SBSwordType", Collections.unmodifiableMap(enums.SBSwordType()));
 
-        event.add("SlashBladeRequestDefinition", RequestDefinition.Builder.newInstance());
+        event.add("SlashBladeRequestDefinition", RequestDefinition.Builder.class);
 
         if (LoaderUtil.isClassAvailable("dev.kosmx.playerAnim.api.layered.AnimationStack")) {
             event.add("SBVmdAnimation", VmdAnimation.class);

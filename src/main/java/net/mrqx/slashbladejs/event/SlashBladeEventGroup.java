@@ -48,4 +48,22 @@ public class SlashBladeEventGroup {
     public static final EventHandler DO_SLASH = GROUP.server("doSlash",
             () -> SlashBladeEventJS.DoSlashEvent.class);
 
+    public static final EventHandler ADD_KILL_COUNT = GROUP.server("addKillCount",
+            () -> SlashBladeEventJS.AddKillCountEvent.class);
+    public static final EventHandler ADD_PROUD_SOUL = GROUP.server("addProudSoul",
+            () -> SlashBladeEventJS.AddProudSoulEvent.class);
+    public static final EventHandler BLADE_STAND_TICK = GROUP.server("bladeStandTick",
+            () -> SlashBladeEventJS.BladeStandTickEvent.class);
+    public static final EventHandler BREAK = GROUP.server("break",
+            () -> SlashBladeEventJS.BreakEvent.class);
+    public static final EventHandler NEXT_COMBO = GROUP.server("nextCombo",
+            () -> SlashBladeEventJS.NextComboEvent.class);
+    public static final EventHandler NEXT_OF_TIMEOUT_COMBO = GROUP.server("nextOfTimeOutCombo",
+            () -> SlashBladeEventJS.NextOfTimeOutComboEvent.class);
+    public static final EventHandler CHARGE_ACTION = GROUP.server("chargeAction",
+            () -> SlashBladeEventJS.ChargeActionEvent.class);
+    public static final EventHandler PERFORM_SLASH_ART = GROUP.server("performSlashArt",
+            () -> SlashBladeEventJS.PerformSlashArtEvent.class);
+    public static final EventHandler SUMMONED_SWORD_ON_HIT_ENTITY = GROUP.server("summonedSwordOnHitEntity",
+            () -> SlashBladeEventJS.SummonedSwordOnHitEntityEvent.class);
 }

@@ -38,6 +38,15 @@ public class SlashBladeJS {
         MinecraftForge.EVENT_BUS.addListener(this::hit);
         MinecraftForge.EVENT_BUS.addListener(this::update);
         MinecraftForge.EVENT_BUS.addListener(this::doSlash);
+        MinecraftForge.EVENT_BUS.addListener(this::addKillCount);
+        MinecraftForge.EVENT_BUS.addListener(this::addProudSoul);
+        MinecraftForge.EVENT_BUS.addListener(this::bladeStandTick);
+        MinecraftForge.EVENT_BUS.addListener(this::breakBlade);
+        MinecraftForge.EVENT_BUS.addListener(this::nextCombo);
+        MinecraftForge.EVENT_BUS.addListener(this::nextOfTimeOutCombo);
+        MinecraftForge.EVENT_BUS.addListener(this::chargeAction);
+        MinecraftForge.EVENT_BUS.addListener(this::performSlashArt);
+        MinecraftForge.EVENT_BUS.addListener(this::summonedSwordOnHitEntity);
     }
 
     public void bladeChangeSpecialAttack(BladeChangeSpecialAttackEvent event) {
@@ -123,5 +132,50 @@ public class SlashBladeJS {
     public void doSlash(SlashBladeEvent.DoSlashEvent event) {
         SlashBladeEventGroup.DO_SLASH.post(ScriptType.SERVER,
                 new SlashBladeEventJS.DoSlashEvent(event));
+    }
+
+    public void addKillCount(SlashBladeEvent.AddKillCountEvent event) {
+        SlashBladeEventGroup.ADD_KILL_COUNT.post(ScriptType.SERVER,
+                new SlashBladeEventJS.AddKillCountEvent(event));
+    }
+
+    public void addProudSoul(SlashBladeEvent.AddProudSoulEvent event) {
+        SlashBladeEventGroup.ADD_PROUD_SOUL.post(ScriptType.SERVER,
+                new SlashBladeEventJS.AddProudSoulEvent(event));
+    }
+
+    public void bladeStandTick(SlashBladeEvent.BladeStandTickEvent event) {
+        SlashBladeEventGroup.BLADE_STAND_TICK.post(ScriptType.SERVER,
+                new SlashBladeEventJS.BladeStandTickEvent(event));
+    }
+
+    public void breakBlade(SlashBladeEvent.BreakEvent event) {
+        SlashBladeEventGroup.BREAK.post(ScriptType.SERVER,
+                new SlashBladeEventJS.BreakEvent(event));
+    }
+
+    public void nextCombo(SlashBladeEvent.NextComboEvent event) {
+        SlashBladeEventGroup.NEXT_COMBO.post(ScriptType.SERVER,
+                new SlashBladeEventJS.NextComboEvent(event));
+    }
+
+    public void nextOfTimeOutCombo(SlashBladeEvent.NextOfTimeOutComboEvent event) {
+        SlashBladeEventGroup.NEXT_OF_TIMEOUT_COMBO.post(ScriptType.SERVER,
+                new SlashBladeEventJS.NextOfTimeOutComboEvent(event));
+    }
+
+    public void chargeAction(SlashBladeEvent.ChargeActionEvent event) {
+        SlashBladeEventGroup.CHARGE_ACTION.post(ScriptType.SERVER,
+                new SlashBladeEventJS.ChargeActionEvent(event));
+    }
+
+    public void performSlashArt(SlashBladeEvent.PerformSlashArtEvent event) {
+        SlashBladeEventGroup.PERFORM_SLASH_ART.post(ScriptType.SERVER,
+                new SlashBladeEventJS.PerformSlashArtEvent(event));
+    }
+
+    public void summonedSwordOnHitEntity(SlashBladeEvent.SummonedSwordOnHitEntityEvent event) {
+        SlashBladeEventGroup.SUMMONED_SWORD_ON_HIT_ENTITY.post(ScriptType.SERVER,
+                new SlashBladeEventJS.SummonedSwordOnHitEntityEvent(event));
     }
 }
